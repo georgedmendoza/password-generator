@@ -11,17 +11,26 @@ var userChar = [];
 
 generatePassword = function() {
   //variable for user to select length of password
-  var c1 = prompt("How long would you like to your password to be. Chose range 8-128");
+  var passLength = prompt("How long would you like to your password to be. Chose range 8-128");
+
+  if(passLength<8 || passLength>128){
+    alert("You must enter a correct value");
+    return generatePassword();
+  }
+  while(passLength==="" || passLength === null) {
+      alert("You must enter a correct value");
+      return generatePassword();
+  }
+  //converting passLength str to int
+  passLength = parseInt(passLength);
+  console.log(passLength);
+  console.log(typeof passLength);
+ 
   //variables for characteristics selected by user
   var lower = confirm("Would you like 1=lowercase Enter 1.");
   var upper = confirm("Would you like 2=uppercase? Enter 2.");
   var numeric = confirm("Would you like 3=numeric? Enter 3.");
   var special = confirm("Would you like special characters? Enter 4.");
-  if(c1<8 || c1>128){
-    alert("You must enter a correct value");
-    return generatePassword();
-  }
-
   
  
   //all four coditions chosen
@@ -81,6 +90,14 @@ generatePassword = function() {
     alert("You must select a characteristic");
     return generatePassword();
   }
+
+  for(var i=0; i<passLength; i++){
+    examplePassword = Math.floor(Math.random() * passLength);
+    console.log(examplePassword);
+  }
+  // var newLength = Math.floor(Math.random() * passLength)
+  // console.log(newLength);
+
 }
 
 // Get references to the #generate element
