@@ -27,10 +27,10 @@ generatePassword = function() {
   console.log(typeof passLength);
  
   //variables for characteristics selected by user
-  var lower = confirm("Would you like 1=lowercase Enter 1.");
-  var upper = confirm("Would you like 2=uppercase? Enter 2.");
-  var numeric = confirm("Would you like 3=numeric? Enter 3.");
-  var special = confirm("Would you like special characters? Enter 4.");
+  var lower = confirm("Would you like lowercase characters?");
+  var upper = confirm("Would you like uppercase characters?");
+  var numeric = confirm("Would you like numeric characters?");
+  var special = confirm("Would you like special characters?");
   
  
   //all four coditions chosen
@@ -92,13 +92,44 @@ generatePassword = function() {
     alert("You must select a characteristic");
     return generatePassword();
   }
+  
+  function randomSelect() {
+    for(var i=0; i<passLength; i++){
+      var examplePassword = userChar[ Math.floor(Math.random() * userChar.length) ];
+      console.log(examplePassword);
+      // console.log(typeof examplePassword);
+      
+      array1.push(examplePassword);
+    }
+    console.log(array1.join(','));
+  
+    //this returns a string separated by commas with no ""
+    console.log(typeof examplePassword);
+    console.log(examplePassword[1]);
+  
+    //this returns as an object like a string seprated by ""
+    console.log(array1);
+    console.log(array1.length)
+    console.log(typeof array1);
+    console.log(array1[1]);
+    // console.log(array1.toString());
 
-  for(var i=0; i<passLength; i++){
-    var examplePassword = userChar[ Math.floor(Math.random() * userChar.length) ];
-    console.log(examplePassword);
+    //new for loop to check conditions. If it works. just trying this
+    for(var i=0; i<array1.length; i++) {
+      if(upperChar.includes(array1[i]) && lowerChar.includes(array1[i]) ){
+        console.log("YES");
+        
+      }else{
+        console.log("NO");
+      }
+
+    }
+
   }
-  // var newLength = Math.floor(Math.random() * passLength)
-  // console.log(newLength);
+  randomSelect()  
+    
+
+  
 
 }
 
