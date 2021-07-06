@@ -4,7 +4,7 @@ var hello = alert("Please answer the next conditions to see what you would like 
 var lowerChar = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var upperChar = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var specialChar = ["!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"];
-var numeric = ["0","1","2","3","4","5","6","7","8","9"];
+var numericChar = ["0","1","2","3","4","5","6","7","8","9"];
 // [0,1,2,3,4,5,6,7,8,9]
 //user chosen characteristics
 var userChar = [];
@@ -22,32 +22,64 @@ generatePassword = function() {
     return generatePassword();
   }
 
-  if(lower===false && upper===false && numeric===false && special===false){
-    alert("You must select a characteristic");
-    return generatePassword();
-  }
+  
  
   //all four coditions chosen
   if (lower===true && upper===true && numeric===true && special===true){
-    userChar = userChar.concat(lowerChar, upperChar, numeric, specialChar)
+    userChar = userChar.concat(lowerChar, upperChar, numericChar, specialChar)
     console.log(userChar);
   }
-  //three conditions chosen. Different combination possibilites
+  //three conditions chosen. Different combination possibilites (4)
   else if(lower===true && upper===true && numeric===true){
-    userChar = userChar.concat(lowerChar, upperChar, numeric)
+    userChar = userChar.concat(lowerChar, upperChar, numericChar)
     console.log(userChar);
-  }
-  else if(lower===true && upper===true && special===true){
+  }else if(lower===true && upper===true && special===true){
     userChar = userChar.concat(lowerChar,upperChar,specialChar)
     console.log(userChar);
-  }
-  else if(lower===true && numeric===true && special===true){
-    userChar = userChar.concat(lowerChar,numeric,specialChar)
+  }else if(lower===true && numeric===true && special===true){
+    userChar = userChar.concat(lowerChar,numericChar,specialChar)
+    console.log(userChar);
+  }else if(upper===true && numeric===true && special===true){
+    userChar = userChar.concat(upperChar,numericChar,specialChar)
     console.log(userChar);
   }
-  else if(upper===true && numeric===true && special===true){
-    userChar = userChar.concat(upperChar,numeric,specialChar)
+  //two conditions chosen. Different combination possibilities (6)
+  else if (lower===true && upper===true){
+    userChar = userChar.concat(lowerChar, upperChar)
     console.log(userChar);
+  }else if(lower===true && numeric===true){
+    userChar = userChar.concat(lowerChar, numericChar)
+    console.log(userChar);
+  }else if(lower===true && special===true){
+    userChar = userChar.concat(lowerChar,specialChar)
+    console.log(userChar);
+  }else if(upper===true && numeric===true){
+    userChar = userChar.concat(upperChar,numericChar)
+    console.log(userChar);
+  }else if(upper===true && special){
+    userChar = userChar.concat(upperChar,specialChar)
+    console.log(userChar);
+  }else if( numeric===true && special===true){
+    userChar = userChar.concat(numericChar,specialChar)
+    console.log(userChar);
+  }
+  //one condition chosen. Different combination possibilities (4)
+  else if(lower===true){
+    userChar = userChar.concat(lowerChar)
+    console.log(userChar);
+  }else if(upper===true){
+    userChar = userChar.concat(upperChar)
+    console.log(userChar);
+  }else if(numeric===true){
+    userChar = userChar.concat(numericChar)
+    console.log(userChar);
+  }else if(special===true){
+    userChar = userChar.concat(specialChar)
+    console.log(userChar);
+  }
+  else{
+    alert("You must select a characteristic");
+    return generatePassword();
   }
 }
 
