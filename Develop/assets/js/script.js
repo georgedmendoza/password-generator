@@ -8,7 +8,7 @@ var numericChar = ["0","1","2","3","4","5","6","7","8","9"];
 // [0,1,2,3,4,5,6,7,8,9]
 //user chosen characteristics
 var userChar = [];
-
+var array1 = [];
 generatePassword = function() {
   //variable for user to select length of password
   var passLength = prompt("How long would you like to your password to be. Chose range 8-128");
@@ -36,6 +36,8 @@ generatePassword = function() {
   //all four coditions chosen
   if (lower===true && upper===true && numeric===true && special===true){
     userChar = userChar.concat(lowerChar, upperChar, numericChar, specialChar)
+    entireLength = userChar.length
+    console.log(entireLength)
     console.log(userChar);
   }
   //three conditions chosen. Different combination possibilites (4)
@@ -92,7 +94,7 @@ generatePassword = function() {
   }
 
   for(var i=0; i<passLength; i++){
-    examplePassword = Math.floor(Math.random() * passLength);
+    var examplePassword = userChar[ Math.floor(Math.random() * userChar.length) ];
     console.log(examplePassword);
   }
   // var newLength = Math.floor(Math.random() * passLength)
@@ -110,7 +112,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  console.log("hello")
 }
 
 // Add event listener to generate button
