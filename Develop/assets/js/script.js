@@ -1,5 +1,5 @@
 // Assignment code here
-var hello = alert("Please answer the next conditions to see what you would like your password to include");
+var hello = alert("Please answer the next questions to see what you would like your password to include");
 //characteristic conditions
 
 var lowerChar = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -58,6 +58,7 @@ generatePassword = function() {
     return generatePassword();
   };
         /*THIS CODE WORKS, BUT I REFACTORED IT 
+          //all four conditions chosen
             if (lower===true && upper===true && numeric===true && special===true){
               userChar = userChar.concat(lowerChar, upperChar, numericChar, specialChar)
               entireLength = userChar.length
