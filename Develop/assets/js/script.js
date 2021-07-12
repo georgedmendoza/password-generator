@@ -53,7 +53,10 @@ generatePassword = function() {
   if (special) {
     userChar = userChar.concat(specialChar)
   };
-
+  if (!upper && !lower && !numeric && !special) {
+    alert("You must select at least one characteristic!")
+    return generatePassword();
+  };
         /*THIS CODE WORKS, BUT I REFACTORED IT 
             if (lower===true && upper===true && numeric===true && special===true){
               userChar = userChar.concat(lowerChar, upperChar, numericChar, specialChar)
