@@ -9,6 +9,6 @@ https://georgedmendoza.github.io/password-generator/
 
 ## Usage 
 
-Below is a video of how the website works when the user interacts with the different pop up options
+Below is a screenshot of the website when a password is already generated.
 
 ![video](Develop/assets/images/password-gen-screenshot.png)
